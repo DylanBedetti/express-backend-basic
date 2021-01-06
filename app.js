@@ -1,15 +1,21 @@
-const express = require('express')
-const app = express()
-require('dotenv').config()
+const express = require("express");
+const app = express();
+const bodyParser = require("body-parser");
 
-// app.get('/', (req, res) => {
-//   res.send('Hello World!')
-// })
+require("dotenv").config();
 
-app.get('/hi', (req, res) => {
-  res.send("helllllo");
-})
+app.use(bodyParser.json());
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+);
+
+app.get("/", (req, res) => {
+  res.json({ info: "Node.js, Express, and Postgres API" });
+});
 
 app.listen(process.env.PORT, () => {
-  console.log(`Example app listening at http://localhost:${process.env.PORT}`)
+  console.log(`Example app listening at http://localhost:${process.env.PORT}`);
 })
+;

@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
-    "postgres:up": "docker-compose up -d",
-    "postgres:down": "docker-compose down"
+    "db:up": "docker-compose up -d",
+    "db:down": "docker-compose down",
+    "lint": "eslint ./ ;exit 0",
+    "lint:fix": "eslint ./ --fix;exit 0"
   },
   "keywords": [],
   "author": "",
@@ -15,9 +17,15 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pg": "^8.5.1"
   },
   "devDependencies": {
+    "eslint": "^7.17.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.6"
   }
